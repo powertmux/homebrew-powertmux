@@ -21,8 +21,16 @@ cleanup:
 setup:
 	brew test-bot --only-setup
 
+# `brew test-bot --only-tap-syntax` hardcodes `brew audit --except=installed`
+# with no flag to add to that list, so this replicates its steps directly
+# (see Homebrew's test_bot/tap_syntax.rb) to also skip the `version` audit:
+# goreleaser always emits an explicit `version` field in the formula even
+# though it's derivable from the release URL, which `brew audit` otherwise
+# flags as "redundant with version scanned from URL" on every release.
 tap-syntax:
-	brew test-bot --only-tap-syntax
+	brew style $(TAP)
+	brew readall --aliases --os=all --arch=all $(TAP)
+	brew audit --except=installed,version --tap=$(TAP)
 
 formulae: trust
 	brew test-bot --only-formulae --testing-formulae=$(FORMULA)
