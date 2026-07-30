@@ -1,11 +1,8 @@
 class Powertmux < Formula
   desc "Drop-in tmux.conf with a styled status bar, window tabs, and sane defaults"
   homepage "https://github.com/napalm255/powertmux"
-  # TODO: bump to the tag that includes the Go CLI (go.mod, main.go, cmd/,
-  # internal/) and replace this sha256 with the real one for that tarball,
-  # e.g.: curl -sL <url> | sha256sum
   url "https://github.com/napalm255/powertmux/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  sha256 "5d4984490ce2832f87fa203bd9f01d083e73ed4c3994b7de224f1c70f0a05ef0"
   license "Unlicense"
 
   depends_on "go" => :build
