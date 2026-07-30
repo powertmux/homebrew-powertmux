@@ -32,6 +32,15 @@ tap-syntax:
 	brew readall --aliases --os=all --arch=all $(TAP)
 	brew audit --except=installed,version --tap=$(TAP)
 
+# Known red: `--only-formulae` runs its own `brew audit`, which hits the
+# same redundant-version warning worked around in tap-syntax above — but
+# unlike tap-syntax, --only-formulae has no flag/except-list to suppress it
+# (--skip-stable-version-audit looks right but actually silences a different
+# check, version regression, not this one; confirmed by testing locally).
+# Reimplementing this step's full fetch/build/bottle/link/test pipeline by
+# hand to work around one cosmetic audit line isn't worth the upkeep, so
+# this audit failure is accepted: it doesn't affect real `brew install` or
+# `brew upgrade` for users, which were verified to work locally.
 formulae: trust
 	brew test-bot --only-formulae --testing-formulae=$(FORMULA)
 
