@@ -5,15 +5,15 @@
 class Powertmux < Formula
   desc "Drop-in tmux.conf with a styled status bar, window tabs, and sane defaults"
   homepage "https://github.com/napalm255/powertmux"
-  version "1.1.0"
+  version "1.1.1"
   license "Unlicense"
 
   depends_on "tmux"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/napalm255/powertmux/releases/download/v1.1.0/powertmux_1.1.0_darwin_amd64.tar.gz"
-      sha256 "e5926b8c1c4a0b2a06bf9470c332e9e789755154aea52621bfa45ba651086e39"
+      url "https://github.com/napalm255/powertmux/releases/download/v1.1.1/powertmux_1.1.1_darwin_amd64.tar.gz"
+      sha256 "9845ef0c88996fdf4aca76432122f32816581b87df7b7cec07f9ec165def01c7"
 
       define_method(:install) do
         bin.install "powertmux"
@@ -21,8 +21,8 @@ class Powertmux < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/napalm255/powertmux/releases/download/v1.1.0/powertmux_1.1.0_darwin_arm64.tar.gz"
-      sha256 "6f920fe36dee0aa9ba4d03a87bd19668a24760670bbd2bdcc2047467465ee8f3"
+      url "https://github.com/napalm255/powertmux/releases/download/v1.1.1/powertmux_1.1.1_darwin_arm64.tar.gz"
+      sha256 "f6c69231afc9f1b861100e21d88a56ce3df6f28777932b4c02fee626c9cb1a9a"
 
       define_method(:install) do
         bin.install "powertmux"
@@ -33,16 +33,16 @@ class Powertmux < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/napalm255/powertmux/releases/download/v1.1.0/powertmux_1.1.0_linux_amd64.tar.gz"
-      sha256 "73fbf3b5e7b5513756b515f0ae1375c4c3bb325deed9ec93afc40f74fcab483b"
+      url "https://github.com/napalm255/powertmux/releases/download/v1.1.1/powertmux_1.1.1_linux_amd64.tar.gz"
+      sha256 "8af52a093b263465effbbd59f690890f4e6933d83a6938eff32cfaa2ca0a1a35"
       define_method(:install) do
         bin.install "powertmux"
         pkgshare.install "tmux.conf"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/napalm255/powertmux/releases/download/v1.1.0/powertmux_1.1.0_linux_arm64.tar.gz"
-      sha256 "fa70877c93382ac9bb41bbc85003d170b90ebcc6939f886b23dcdf1704162984"
+      url "https://github.com/napalm255/powertmux/releases/download/v1.1.1/powertmux_1.1.1_linux_arm64.tar.gz"
+      sha256 "4208aacde36da4d93f8c2066acd6100dc63a1f1811ad7e8b79332b468a5651ba"
       define_method(:install) do
         bin.install "powertmux"
         pkgshare.install "tmux.conf"
