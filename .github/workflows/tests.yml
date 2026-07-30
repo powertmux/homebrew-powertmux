@@ -25,12 +25,12 @@ jobs:
 
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
-        run: brew install-bundler-gems
+        run: make deps
 
-      - run: brew test-bot --only-cleanup-before
+      - run: make cleanup
 
-      - run: brew test-bot --only-setup
+      - run: make setup
 
-      - run: brew test-bot --only-tap-syntax
+      - run: make tap-syntax
 
-      - run: brew test-bot --only-formulae --testing-formulae=powertmux
+      - run: make formulae

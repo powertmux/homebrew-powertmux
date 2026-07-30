@@ -1,0 +1,7 @@
+# brew test-bot output artifacts (left in the tap root by `make formulae`/`brew test-bot`)
+*.bottle.json
+*.bottle.*.tar.gz
+bottle_output.txt
+linkage_output.txt
+skipped_or_failed_formulae-*.txt
+steps_output.txt
